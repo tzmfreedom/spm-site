@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20170514151144) do
 
   create_table "packages", force: :cascade do |t|
     t.string "name"
+    t.integer "stargazers_count"
+    t.integer "forks_count"
+    t.boolean "fork"
     t.string "author"
     t.text "description"
     t.datetime "created_at", null: false
