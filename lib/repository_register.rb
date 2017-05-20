@@ -14,7 +14,7 @@ class RepositoryRegister
     client = Octokit::Client.new(:login => @username, :password => @password)
     repos = client.search_repositories(@query, @options)
 
-    packages = repos.items.map do |item|
+    repos.items.each do |item|
       package = Package.new(
         name: item.name,
         fork: item.fork,
@@ -24,15 +24,14 @@ class RepositoryRegister
         author: item.owner.login,
       )
       contents = item.rels[:contents].get.data
-      path = walk_to_packagexml(contents, depth)
+      path = walk_to_packagexml(contents, 0)
       package.package_items = [
         PackageItem.new(
-          path: path.blank? ? '/' : path,
+          path: path,
         )
       ]
-      binding.pry
+      package.save
     end
-    Package.import(packages)
   end
 
   def walk_to_packagexml(contents, depth, path = '')
@@ -40,7 +39,7 @@ class RepositoryRegister
     return path if contents.any? { |content| content.name == 'package.xml' }
 
     contents.each do |content|
-      if content.type = 'dir'
+      if content.type == 'dir'
         result_path = walk_to_packagexml(content.rels[:self].get.data, depth+1, "#{path}/#{content.name}")
         return result_path if result_path
       end
