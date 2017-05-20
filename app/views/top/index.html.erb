@@ -1,14 +1,6 @@
-<div style="background-color: antiquewhite;height: 100%;">
-  <div class="container text-center">
+<div style="background-color: darkblue;">
+  <div class="container text-center" style="color: white;">
     <h1><strong>SPM - Salesforce Package Manager -</strong></h1>
-    <div style="margin-top: 50px">
-      <h2><strong>Install</strong></h2>
-      <pre style="margin: 0px 300px"><code class="lang-shell">$ curl https://install.freedom-man.com/spm.sh | bash</code></pre>
-    </div>
-    <!--<div style="margin-top: 50px">-->
-      <!--<h2><strong>Usage</strong></h2>-->
-      <!--<pre style="margin: 0px 300px"><code class="lang-shell">$ spm install {user}/{repo}</code></pre>-->
-    <!--</div>-->
     <div style="margin: 50px 300px;">
       <%= form_tag search_path, method: :get do |f| %>
         <div class="input-group">
@@ -21,5 +13,11 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>
+<div class="container">
+  <div style="margin-top: 50px">
+    <h2><strong>Install</strong></h2>
+    <pre style="margin: 0px 300px"><code class="lang-shell">$ curl https://install.freedom-man.com/spm.sh | bash</code></pre>
   </div>
 </div>
