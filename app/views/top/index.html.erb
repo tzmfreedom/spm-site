@@ -15,9 +15,38 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <div style="margin-top: 50px">
-    <h2><strong>Install</strong></h2>
-    <pre style="margin: 0px 300px"><code class="lang-shell">$ curl https://install.freedom-man.com/spm.sh | bash</code></pre>
+<div class="container contents">
+  <div style="margin-top: 30px">
+    <div class="description">
+      <h2><strong>Install</strong></h2>
+      <div class="description-detail">
+        <p>For Linux or macOS user</p>
+        <pre><code class="lang-shell">$ curl https://install.freedom-man.com/spm.sh | bash</code></pre>
+        <p>For Docker user</p>
+        <pre><code class="lang-shell">$ docker run --rm tzmfree/spm install {package_name}</code></pre>
+      </div>
+    </div>
+    <div class="description">
+      <h2><strong>Usage</strong></h2>
+      <div class="description-detail">
+        <pre><code class="lang-shell">$ spm install -u {user} -p {password} {package_name} </code></pre>
+      </div>
+    </div>
+    <div class="description">
+      <h2><strong>What Is SPM ?</strong></h2>
+      <div class="description-detail">
+        SPM is Command Line Interface to install salesforce packages that is managed as remote repository.<br/>
+        It's simpler than officially supported packaging system. <br/>
+        Because SPM is command line interface, you can combinate other *nix command.<br/>
+        SPM can be also use as deployment tool. It can install from an salesforce organization to other.<br/>
+      </div>
+    </div>
+    <div class="description">
+      <h2><strong>How To Work SPM ?</strong></h2>
+      <div class="description-detail">
+        SPM work with git and Salesforce metadata api.<br/>
+        If you call install subcommand, SPM clone repository from remote and install it to your salesforce organization with metadata api.<br/>
+      </div>
+    </div>
   </div>
 </div>

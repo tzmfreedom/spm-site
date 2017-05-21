@@ -1,9 +1,12 @@
-<div>
+<div class="container contents">
   <div>
-    <h1><%= @package.name %></h1>
+    <h1><strong><%= @package.name %></strong></h1>
   </div>
+  <div style="margin-top: 30px;"><%= @package.description %></div>
   <div>
-    <h2>Install</h2>
-    <pre>$ spm install <%= "#{@package.author}/#{@package.name}#{@package.package_items[0].path}" %></pre>
+    <h2><strong>Install</strong></h2>
+    <div>
+      <pre>$ spm install <%= "#{@package.author}/#{@package.name}#{@package.package_items[0].path}" %></pre>
+    </div>
   </div>
 </div>
