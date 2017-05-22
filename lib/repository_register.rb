@@ -34,6 +34,17 @@ class RepositoryRegister
     end
   end
 
+  def set_readme
+    client = Octokit::Client.new(:login => @username, :password => @password)
+    Package.where('readme IS NULL').each do |package|
+      begin
+        res = client.readme("#{package.author}/#{package.name}")
+        package.update_attributes(readme: Base64.decode64(res.content))
+      rescue
+      end
+    end
+  end
+
   def walk_to_packagexml(contents, depth, path = '')
     return nil if depth == 3
     return path if contents.any? { |content| content.name == 'package.xml' }

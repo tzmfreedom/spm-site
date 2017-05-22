@@ -1,12 +1,15 @@
 <div class="container contents">
   <div>
-    <h1><strong><%= @package.name %></strong></h1>
+    <h1><strong><%= link_to @package.name, "https://github.com/#{@package.author}/#{@package.name}" %></strong></h1>
   </div>
   <div style="margin-top: 30px;"><%= @package.description %></div>
   <div>
     <h2><strong>Install</strong></h2>
-    <div>
+    <div style="margin-top: 30px;">
       <pre>$ spm install <%= "#{@package.author}/#{@package.name}#{@package.package_items[0].path}" %></pre>
     </div>
+  </div>
+  <div style="margin-top: 40px;">
+    <div><%= @readme.html_safe %></div>
   </div>
 </div>
