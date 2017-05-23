@@ -64,7 +64,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'octokit', '~> 4.0'
-gem 'activerecord-import'
 gem 'jquery-rails'
 gem 'redcarpet'
 gem 'sitemap_generator'
